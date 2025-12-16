@@ -114,13 +114,14 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'steemnekronik@gmail.com'
 EMAIL_HOST_PASSWORD = 'dfwb vzut mapk tefz'
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-  BASE_DIR / "static",
+  BASE_DIR / "blog" / "static", 
 ]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
