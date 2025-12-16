@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="alert alert-light">
+      <h1>{{ post.title }}</h1>  
+      <p>{{ post.text|safe }}</p>   
+      <div class="row1">
+        <img src="{{ post.avtor.profile.img.url }}" alt="{{ post.avtor }}" class="user_images"> 
+        <div class="mt-2">
+          <span class="text-muted">Публикация: {{ post.date|date:"j E Y в H:i "}}</span> 
+          <p><b>Автор:</b> <a href="{% url 'user-news' post.avtor %}">{{ post.avtor }}</a></p>
+        </div>     
+      </div>
+      {% if object.avtor == user %}
+        <hr>
+        <a href="{% url 'news-update' object.id %}" class="btn btn-info">Обновить статью</a>
+        <a href="{% url 'news-delete' object.id %}" class="btn btn-danger">Удалить статью</a>
+      {% endif %}
+    </div>
+  
+{% endblock %}
+
+{% block aside_block %}
+  <h4 class="mt-2">Интересные статьи</h4>
+  <img src="https://itproger.com/img/courses/x1539259763.jpg.pagespeed.ic.ZYYkNvBw8A.webp" class="img-thumbnail">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore illo repellendus dolorum! Iusto, ducimus impedit!</p>
+
+  <img src="https://itproger.com/img/news/1591879929.jpg" class="img-thumbnail  mt-4">
+  <p>Уже не первый год слышно много положительных отзывов про движок Gogot</p>
+  <a href="#" target="_blank">
+    <button class="btn, btn-warning">Посмотреть</button>
+  </a>
+{% endblock %}
