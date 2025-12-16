@@ -116,13 +116,12 @@ EMAIL_HOST_PASSWORD = 'dfwb vzut mapk tefz'
 
 STATIC_URL = '/static/'
 
-# Де Django шукатиме локальні статичні файли під час розробки
 STATICFILES_DIRS = [
-    BASE_DIR / "blog" / "static",
+    BASE_DIR / "static",
 ]
 
-# Куди збирати всі статичні файли для продакшну
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 
 # Default primary key field type
