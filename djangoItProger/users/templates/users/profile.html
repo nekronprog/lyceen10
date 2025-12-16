@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+  Кабинет пользвователя
+{% endblock %}
+
+{% block content %}
+  <h1>Кабинет пользвователя</h1>
+  <div class="d-flex text-body-secondary pt-3"> 
+    <img class="bd-placeholder-img mr-2 rounded" width="64" height="64" src="{{ user.profile.img.url }}">
+    <p class="pb-3 mb-0 small lh-sm border-bottom small lh-125 border-gray media-body"> 
+      <strong class="d-block text-gray-dark myspan ml-left">{{ user.username }}</strong>
+      {% if user.email %}
+        <b class="ml-left">Email:</b>{{ user.email }}
+      {% endif %}
+    </p> 
+  </div>
+  <form method="post" enctype="multipart/form-data" class="form-register mt-4">
+    {% csrf_token %}
+    {{ updateUserForm.as_p }}
+    {{ profileForm.as_p }}
+    <button class="btn btn-outline-warning" type="submit">Обновить</button>
+  </form>
+{% endblock %}
+
+{% block aside_block %}
+  <h4 class="mt-2">Интересные статьи</h4>
+  <img src="https://itproger.com/img/news/1591879929.jpg" class="img-thumbnail">
+  <p>Уже не первый год слышно много положительных отзывов про движок Gogot</p>
+  <a href="#" target="_blank">
+    <button class="btn, btn-warning">Посмотреть</button>
+  </a>
+  <img src="https://itproger.com/img/courses/x1539259763.jpg.pagespeed.ic.ZYYkNvBw8A.webp" class="img-thumbnail mt-4">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore illo repellendus dolorum! Iusto, ducimus impedit!</p>
+{% endblock %}
